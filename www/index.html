@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+    <script src="/xuni/bundle.js"></script>
+    <script>
+        var templateStr = `
+            <div>
+                <ul>
+                {{#arr}}
+                    <li>{{name}}的爱好是：
+                        <ol>{{#hobbies}}
+                                <li>{{.}}</li>
+                            {{/hobbies}}
+                        </ol>
+                    </li>
+                {{/arr}}
+                </ul>
+            </div>
+        `;
+
+        var data = {
+            arr: [{
+                    "name": "小明",
+                    "age": 12,
+                    "hobbies": ["游泳", "羽毛球"]
+                },
+                {
+                    "name": "小红",
+                    "age": 11,
+                    "hobbies": ["编程", "弹钢琴"]
+                },
+                {
+                    "name": "小强",
+                    "age": 13,
+                    "hobbies": ["游泳", "羽毛球"]
+                }
+            ]
+        };
+
+        // var templateStr = `<h1>我买了一棵{{thing}},花了{{money}}元，好{{mood}}</h1>`;
+
+        // var data = {
+        //     thing:"白菜",
+        //     money:5,
+        //     mood:"激动"
+        // };
+
+        //    调用
+        var inx = templateEngine.render(templateStr, data);
+        var container = document.getElementsByClassName("container")[0];
+        container.innerHTML = inx;
+        console.log(inx);
+    </script>
+</body>
+
+</html>

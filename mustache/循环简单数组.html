@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mustache</title>
+
+</head>
+<body>
+<div id="container">
+
+</div>
+</body>
+<script src="../js/mustache.js"></script>
+<script>
+    var templateStr = `
+        <ul>
+        {{#arr}}
+            <li>{{.}}</li>
+        {{/arr}}
+        </ul>
+    `;
+
+    var data = {
+        arr:["A","B","C"]
+    };
+
+    var domStr = Mustache.render(templateStr,data);
+    var dom = document.getElementById("container");
+    dom.innerHTML = domStr;
+    console.log(domStr);
+</script>
+</html>
